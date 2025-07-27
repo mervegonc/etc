@@ -1,11 +1,10 @@
-@FunctionalInterface
-interface NamePrinter {
-    void print(String name);
-}
+import java.util.Arrays;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        NamePrinter p = name -> System.out.println("Merhaba " + name);
-        p.print("Merve"); // Merhaba Merve
+        List<String> fruits = Arrays.asList("Elma", "Muz", "Portakal");
+
+        fruits.forEach(fruit -> System.out.println("Meyve: " + fruit));
     }
 }
