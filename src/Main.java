@@ -2,18 +2,20 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        Set<String> fruits = new HashSet<>();
+        Set<Integer> hashSet = new HashSet<>();
+        Set<Integer> linkedSet = new LinkedHashSet<>();
+        Set<Integer> treeSet = new TreeSet<>();
 
-        fruits.add("Elma");
-        fruits.add("Muz");
-        fruits.add("Elma"); // tekrar eklemeye çalışıyoruz
-        fruits.add("Armut");
+        int[] sayilar = {10, 5, 20};
 
-        // Tüm meyveleri yazdıralım
-        for (String fruit : fruits) {
-            System.out.println(fruit);
+        for (int s : sayilar) {
+            hashSet.add(s);
+            linkedSet.add(s);
+            treeSet.add(s);
         }
 
-        System.out.println("Meyve sayısı: " + fruits.size()); // 3
+        System.out.println("HashSet (karışık): " + hashSet);
+        System.out.println("LinkedHashSet (ekleme sırası): " + linkedSet);
+        System.out.println("TreeSet (küçükten büyüğe): " + treeSet);
     }
 }
