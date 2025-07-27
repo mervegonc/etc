@@ -2,20 +2,23 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        Set<Integer> hashSet = new HashSet<>();
-        Set<Integer> linkedSet = new LinkedHashSet<>();
-        Set<Integer> treeSet = new TreeSet<>();
 
-        int[] sayilar = {10, 5, 20};
+        Map<Integer, String> studentNumber = new HashMap<>();
 
-        for (int s : sayilar) {
-            hashSet.add(s);
-            linkedSet.add(s);
-            treeSet.add(s);
+        studentNumber.put(7454,"Merve");
+        studentNumber.put(7050,"Binali");
+        studentNumber.put(1453,"Mehmet");
+
+        for(Integer  number : studentNumber.keySet()){
+            System.out.println(number);
         }
 
-        System.out.println("HashSet (karışık): " + hashSet);
-        System.out.println("LinkedHashSet (ekleme sırası): " + linkedSet);
-        System.out.println("TreeSet (küçükten büyüğe): " + treeSet);
+        for(String name : studentNumber.values()){
+            System.out.println(name);
+        }
+
+        for (Map.Entry<Integer, String> entry : studentNumber.entrySet()){
+            System.out.println(entry.getKey()+":"+ entry.getValue());
+        }
     }
 }
