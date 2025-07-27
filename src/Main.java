@@ -3,8 +3,10 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        List<String> fruits = Arrays.asList("Elma", "Muz", "Portakal");
+        List<String> names = Arrays.asList("Ali", "Ayşe", "Mehmet");
 
-        fruits.forEach(fruit -> System.out.println("Meyve: " + fruit));
+        names.stream()
+                .filter(name -> name.startsWith("A"))
+                .forEach(name -> System.out.println("A ile başlayan: " + name));
     }
 }
