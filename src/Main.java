@@ -1,11 +1,11 @@
 @FunctionalInterface
-interface Multiplier {
-    int multiply(int a, int b);
+interface NamePrinter {
+    void print(String name);
 }
 
 public class Main {
     public static void main(String[] args) {
-        Multiplier m = (a, b) -> a * b;
-        System.out.println("Çarpım: " + m.multiply(4, 5)); // 20
+        NamePrinter p = name -> System.out.println("Merhaba " + name);
+        p.print("Merve"); // Merhaba Merve
     }
 }
