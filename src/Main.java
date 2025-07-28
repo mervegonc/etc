@@ -2,10 +2,10 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        List<String> names = List.of("ali", "ayşe", "mehmet");
+        List<Integer> numbers = List.of(3, 7, 1, 5);
 
-        names.stream()
-                .map(String::toUpperCase)
+        numbers.stream()
+                .sorted()
                 .forEach(System.out::println);
     }
 }
