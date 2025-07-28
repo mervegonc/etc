@@ -2,10 +2,10 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        List<String> list = List.of("Ali", "Ayşe", "Veli");
+        List<String> names = List.of("ali", "ayşe", "mehmet");
 
-        list.stream()
-                .filter(name -> name.startsWith("A"))
-                .forEach(name -> System.out.println("A ile başlayan: " + name));
+        names.stream()
+                .map(String::toUpperCase)
+                .forEach(System.out::println);
     }
 }
