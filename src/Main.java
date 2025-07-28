@@ -1,15 +1,45 @@
+import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
-        List<Integer> numbers = List.of(5, 10, 15);
+        List<String> names = Arrays.asList("Merve", "Ali", "Mehmet", "Ayşe", "Mustafa");
 
-        int sum = numbers.stream().mapToInt(n -> n).sum();
-        long count = numbers.stream().count();
-        int max = numbers.stream().mapToInt(n -> n).max().orElse(0);
+// Uzunluğu 5'ten büyük olanları yazdır
+        names.stream()
+                .filter(name -> name.length() > 5)
+                .forEach(System.out::println);
 
-        System.out.println("Toplam: " + sum);
-        System.out.println("Eleman sayısı: " + count);
-        System.out.println("En büyük: " + max);
+
+        List<String> names1 = Arrays.asList("merve", "ali", "mehmet", "ayşe");
+
+        names1.stream()
+                .map(String::toUpperCase)
+                .sorted()
+                .forEach(System.out::println);
+
+
+
+        Map<Integer, String> students = Map.of(
+                1, "Merve",
+                2, "Ali",
+                3, "Ayşe"
+        );
+
+        students.values().stream()
+                .forEach(System.out::println);
+
+
+
+
+        List<Integer> numbers2 = Arrays.asList(10, 20, 30, 40);
+
+        int total = numbers2.stream()
+                .mapToInt(Integer::intValue)
+                .sum();
+
+        System.out.println("Toplam: " + total);
+
     }
 }
