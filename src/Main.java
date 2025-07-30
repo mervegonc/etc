@@ -1,45 +1,38 @@
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        List<String> names = Arrays.asList("Merve", "Ali", "Mehmet", "Ayşe", "Mustafa");
+        Scanner scanner = new Scanner(System.in);
 
-// Uzunluğu 5'ten büyük olanları yazdır
-        names.stream()
-                .filter(name -> name.length() > 5)
-                .forEach(System.out::println);
+        System.out.print("Bir metin girin: ");
+        String input = scanner.nextLine();
 
+        // Burada yazma ve okuma işlemlerine geçeceğiz
+        // Kullanıcının girdiği input değişkeni kullanılıyor
+        try {
+            FileWriter writer = new FileWriter("kullanici.txt");
+            writer.write(input);
+            writer.close();
+            System.out.println("Metin dosyaya yazıldı.");
+        } catch (IOException e) {
+            System.out.println("Yazma hatası: " + e.getMessage());
+        }
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("kullanici.txt"));
+            String line;
+            System.out.println("Dosyadaki içerik:");
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+            reader.close();
+        } catch (IOException e) {
+            System.out.println("Okuma hatası: " + e.getMessage());
+        }
 
-        List<String> names1 = Arrays.asList("merve", "ali", "mehmet", "ayşe");
-
-        names1.stream()
-                .map(String::toUpperCase)
-                .sorted()
-                .forEach(System.out::println);
-
-
-
-        Map<Integer, String> students = Map.of(
-                1, "Merve",
-                2, "Ali",
-                3, "Ayşe"
-        );
-
-        students.values().stream()
-                .forEach(System.out::println);
-
-
-
-
-        List<Integer> numbers2 = Arrays.asList(10, 20, 30, 40);
-
-        int total = numbers2.stream()
-                .mapToInt(Integer::intValue)
-                .sum();
-
-        System.out.println("Toplam: " + total);
 
     }
 }
